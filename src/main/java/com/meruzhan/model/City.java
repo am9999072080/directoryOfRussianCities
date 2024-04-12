@@ -24,7 +24,6 @@ public class City {
     public City() {
     }
 
-
     public int getId() {
         return id;
     }

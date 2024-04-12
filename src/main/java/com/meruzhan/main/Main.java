@@ -39,6 +39,5 @@ public class Main {
         City searchByCityName = cities.stream().filter(customer -> "Москва".equals(customer.getName())).findAny().orElse(null);
 
         System.out.println(searchByCityName);
-
     }
 }
