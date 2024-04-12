@@ -65,6 +65,6 @@ public class City {
 
     @Override
     public String toString() {
-        return "\nНаименование города: " + name + ", Регион: " + region + ", Федеральный округ: " + district + ", Количество жителей: " + population + ", Дата основания: " + foundation;
+        return "\nCity{name='" + name + "', region='" + region + "', district='" + district + "', population='" + population + "', foundation='" + foundation + "'}";
     }
 }
