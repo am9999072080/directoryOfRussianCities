@@ -1,7 +1,7 @@
 package com.meruzhan.model;
 
 public class City {
-    private int id;
+
     private String name;
 
     private String region;
@@ -12,8 +12,7 @@ public class City {
 
     private String foundation;
 
-    public City(int id, String name, String region, String district, int population, String foundation) {
-        this.id = id;
+    public City(String name, String region, String district, int population, String foundation) {
         this.name = name;
         this.region = region;
         this.district = district;
@@ -22,14 +21,6 @@ public class City {
     }
 
     public City() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -74,6 +65,6 @@ public class City {
 
     @Override
     public String toString() {
-        return "\nПорядковый номер: " + id + ", Наименование города: " + name + ", Регион: " + region + ", Федеральный округ: " + district + ", Количество жителей: " + population + ", Дата основания: " + foundation;
+        return "\nНаименование города: " + name + ", Регион: " + region + ", Федеральный округ: " + district + ", Количество жителей: " + population + ", Дата основания: " + foundation;
     }
 }
