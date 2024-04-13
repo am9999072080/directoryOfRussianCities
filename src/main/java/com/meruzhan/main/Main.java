@@ -52,5 +52,18 @@ public class Main {
                 .sorted(compareByDistrict)
                 .collect(Collectors.toCollection(ArrayList::new));
         System.out.println(sortedByDistrict);
+
+        System.out.println("\n----Maximum population----");
+        City[] arrayCities = cities.toArray(new City[0]);
+        int ind = -1;
+        int value = Integer.MIN_VALUE;
+        for (int i = 0; i < arrayCities.length; i++) {
+            int population = arrayCities[i].getPopulation();
+            if (population > value) {
+                ind = i;
+                value = population;
+            }
+        }
+        System.out.println("[" + ind + "]=" + value);
     }
 }
