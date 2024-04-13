@@ -3,9 +3,9 @@ package com.meruzhan.main;
 import com.meruzhan.model.City;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -32,11 +32,25 @@ public class Main {
             cities.add(city);
         }
         reader.close();
-
+        System.out.println("----After sorting----");
         System.out.println(cities);
 
-        City searchByCityName = cities.stream().filter(customer -> "Москва".equals(customer.getName())).findAny().orElse(null);
-        System.out.println("\nSearch by city name:");
-        System.out.println(searchByCityName);
+        System.out.println("\n----Sorted by city----");
+        Comparator<City> compareByName = Comparator.comparing(City::getName);
+        ArrayList<City> sortedByCity = cities.stream()
+                .sorted(compareByName)
+                .collect(Collectors.toCollection(ArrayList::new));
+        System.out.println(sortedByCity);
+
+        System.out.println("\n----Sorted by district----");
+        Comparator<City> compareByDistrict = Comparator
+                .comparing(City::getDistrict)
+                .thenComparing(City::getName).reversed()
+                .thenComparing(City::getRegion).reversed();
+
+        ArrayList<City> sortedByDistrict = cities.stream()
+                .sorted(compareByDistrict)
+                .collect(Collectors.toCollection(ArrayList::new));
+        System.out.println(sortedByDistrict);
     }
 }
